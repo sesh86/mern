@@ -1,0 +1,45 @@
+Begin React:
+============
+
+npm i -g create-react-app
+
+create a new react app:
+=======================
+create-react-app client
+
+cd client
+
+npm start	
+
+
+Proxy:
+======
+in package.json of client(react)
+add "proxy":"localhost:5000" just before the last }
+
+this is to call the APIs without the hostname
+
+Concurrently:
+=============
+This is to run the client and the server simultaneously
+
+install concurrently
+
+add the following in the server's package.json
+
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client":"npm start --prefix client",
+    "dev":"concurrently \"npm run server\" \"npm run client\""
+  },
+
+
+Run client and server concurrently:
+====================================
+
+npm run dev
+
+
+  

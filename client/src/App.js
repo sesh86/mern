@@ -6,7 +6,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Sesh</h1>
+        <NewComp name={this.props.name} />
+      </div>
+    );
+  }
+}
+
+class NewComp extends React.Component {
+  render() {
+    return (
+      <div>
+        Hello {this.props.name}
       </div>
     );
   }

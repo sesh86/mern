@@ -1,0 +1,60 @@
+GIT:
+====
+echo "# test" >> README.md
+git init
+
+git config --global core.excludesfile ~/.gitignore_global
+--add .gitignore file and add the files/folders not to be checked in
+
+Add the files:
+==============
+git add .
+
+Commit:
+=======
+git commit -m "first commit"
+
+--first time only
+git remote add origin https://github.com/sesh86/test.git 
+
+--master is just a branch name
+git push -u origin master  
+
+
+Commits:
+========
+git commit -m "comment"
+
+git push -u origin master
+
+new branch
+===========
+
+--create new branch
+git checkout -b iss53
+
+
+create new branch with a particular branch:
+===========================================
+git checkout -b iss55 iss53
+
+
+Checkin
+========
+--add the changes
+git add .
+
+--commit the code
+git commit -m "Commit comment"
+
+--push the changes to branch
+git push -u origin iss53
+
+
+checkout an existing branch
+===========================
+git checkout iss53
+
+See list of branches:
+=====================
+git branch

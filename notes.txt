@@ -41,5 +41,9 @@ Run client and server concurrently:
 
 npm run dev
 
+Day2:
+=====
 
+class name should always start in upper case
+  
   

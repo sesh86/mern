@@ -9,7 +9,7 @@ create-react-app client
 
 cd client
 
-npm start	
+npm start
 
 
 Proxy:
@@ -45,5 +45,7 @@ Day2:
 =====
 
 class name should always start in upper case
-  
-  
+How to use properties
+how to passs properties from parent to child component
+State, setState
+Onchange and Submit events

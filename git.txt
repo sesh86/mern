@@ -3,8 +3,13 @@ GIT:
 echo "# test" >> README.md
 git init
 
+gitignore:
+==========
+touch .gitignore
+
+--Enter the files/folders not to be checked in
+
 git config --global core.excludesfile ~/.gitignore_global
---add .gitignore file and add the files/folders not to be checked in
 
 Add the files:
 ==============

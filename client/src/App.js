@@ -15,7 +15,7 @@ class App extends Component {
 class NewComp extends React.Component {
   render() {
     return (
-      <div>
+      <div class="container p-3 bg-light">
         Hello {this.props.name}
       </div>
     );

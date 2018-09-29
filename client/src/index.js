@@ -8,5 +8,5 @@ import TodoApp from './ToDo';
 import registerServiceWorker from './registerServiceWorker';
 
 
-ReactDOM.render(<div><App name="sesh"/><Timer name="5"/><TodoApp/></div>, document.getElementById('root'));
+ReactDOM.render(<div className="App"><App name="sesh"/><Timer name="5"/><TodoApp/></div>, document.getElementById('root'));
 registerServiceWorker();

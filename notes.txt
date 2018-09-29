@@ -49,3 +49,16 @@ How to use properties
 how to passs properties from parent to child component
 State, setState
 Onchange and Submit events
+
+
+Day3:
+====
+
+-Change port of react application - modify start in package.json
+  "start": "set PORT=80 && react-scripts start",
+-Added bootstrap
+-Made the application responsive
+-Added buttons to the timer - Resume, Pause, Stop
+-ToDo List -> Added functionality to remove the list onClick
+-diff bet onclick={} and onclick={()=>}, in the latter 'this' will be bound - https://reactjs.org/docs/handling-events.html
+-This is not React-specific behavior; it is a part of how functions work in JavaScript. Generally, if you refer to a method without () after it, such as onClick={this.handleClick}, you should bind that method.

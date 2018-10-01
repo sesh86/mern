@@ -46,7 +46,7 @@ Day2:
 
 class name should always start in upper case
 How to use properties
-how to passs properties from parent to child component
+how to pass properties from parent to child component
 State, setState
 Onchange and Submit events
 
@@ -62,3 +62,28 @@ Day3:
 -ToDo List -> Added functionality to remove the list onClick
 -diff bet onclick={} and onclick={()=>}, in the latter 'this' will be bound - https://reactjs.org/docs/handling-events.html
 -This is not React-specific behavior; it is a part of how functions work in JavaScript. Generally, if you refer to a method without () after it, such as onClick={this.handleClick}, you should bind that method.
+
+Day4:
+=====
+-Virtual dom
+-Virtual DOM updates DOM only when there is a change in state
+-DOM is updated based on virtual DOM
+-Components contains {HTML,State,JavaScript}
+-JSX Limitation: 1) Should always return only one root element 2) Shouldnt use 'class' for DOM, as class is a reserved keyword in JSX. Instead use className
+-ReactDOM.render(<component>,document.getElementById('app'))
+-{} - Dynamic content in JSX
+-how to use react in CDN library
+-Babel.js is a free and open-source JavaScript compiler and configurable transpiler used in web development
+-react extention for developer tools
+-Events are camel case in JSX
+-onClick={this.fun} will invoke function on click.
+-onClick={this.fun()} will invoke the function right away when the page loads
+-function should be bound to be called on DOM events. Three diff ways to bind
+  1) Explicitly bind the function in class eg: this.resumeTime = this.resumeTime.bind(this);
+  2) Create the function as bound method. eg: pauseTime = () => {clearInterval(this.interval);this.disableButton(false,true,true);}
+  3) Bind it in the event - eg: onClick={()=>this.resumeTime()}
+-Read DOM value in function - eg: handleChange = (e)=>{this.setState({name:e.target.value })}
+-This is to prevent default behavior during events - e.preventDefault
+-Install create-react-app
+-SPA - Single Page Apps : React apps are generally SPAs
+-props can also be used like this - const {name,age,sex}=this.props; //This will get the name,age,sex properties from props

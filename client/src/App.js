@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state={name:""}
+
+  handleChange = (e)=>{this.setState({name:e.target.value })}
+
   render() {
     return (
-      <div>
-        <NewComp name={this.props.name} />
+      <div className="container p-3 bg-light d-line">
+        <NewComp name={this.state.name} />
+        <input type="text" onChange={this.handleChange}/>
       </div>
     );
   }
@@ -15,7 +19,7 @@ class App extends Component {
 class NewComp extends React.Component {
   render() {
     return (
-      <div class="container p-3 bg-light">
+      <div>
         Hello {this.props.name}
       </div>
     );

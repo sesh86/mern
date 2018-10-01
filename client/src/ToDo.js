@@ -11,29 +11,29 @@ class TodoApp extends React.Component {
 
   removeTodo(name){
       this.setState({
-          items: this.state.items.filter(e => e != name)
+          items: this.state.items.filter(e => e !== name)
       })
   }
   // <TodoList items={this.state.items} />//sets the property with the state value of the parent
   render() {
     return (
-      <div class="container bg-info p-5 ">
+      <div className="container bg-info p-5 ">
         <h3>TODO</h3>
         <TodoList items={this.state.items} removeTodo={this.removeTodo}/>
-        <form onSubmit={this.handleSubmit} class="">
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor="new-todo">
             What needs to be done?
           </label>
-          <div class="row ">
-              <div class="mx-auto">
-                <div class="input-group">
+          <div className="row ">
+              <div className="mx-auto">
+                <div className="input-group">
                 <input
                   id="new-todo"
                   onChange={this.handleChange}
                   value={this.state.text}
                 />
                 <span  >
-                <button class="input-group-addon">
+                <button className="input-group-addon">
                   Add #{this.state.items.length + 1}
                 </button>
                 </span>
@@ -74,11 +74,11 @@ class TodoList extends React.Component {
   //onClick={() => { this.removeItem(todo)}}
   render() {
     return (
-      <div class="row">
-      {this.props.items.length>0 && <div class="text-light col-10 mx-auto" >Click on the item to remove</div>}
-      <ul class="list-group-mb5 text-left col-sm-10 col-md-4 mx-auto">
+      <div className="row">
+      {this.props.items.length>0 && <div className="text-light col-10 mx-auto" >Click on the item to remove</div>}
+      <ul className="list-group-mb5 text-left col-sm-10 col-md-4 mx-auto">
         {this.props.items.map(item => (
-          <li key={item.id} onClick={() => { this.removeItem(item)}} class="list-group-item">{item.text}<a onClick={() => { this.removeItem(item)}} class="text-right float-right text-danger">X</a></li>
+          <li key={item.id} onClick={() => { this.removeItem(item)}} className="list-group-item">{item.text}<a onClick={() => { this.removeItem(item)}} className="text-right float-right text-danger">X</a></li>
         ))}
       </ul>
       </div>

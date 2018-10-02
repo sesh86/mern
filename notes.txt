@@ -97,3 +97,20 @@ Day5:
 -Added default empList, Used spread operator for the hostname
 -Added onClick function, which will delete the row, to the TR tag in empList
 -Added the strikethrough style onhover for the empList
+
+Day6:
+=====
+-Install react-router-dom to use routes in react - npm install react-router-dom
+-Added a NavBar to navigate between different routes
+-Added Bootstrap JS files for Navbar to be responsive
+-Routes implemented
+-Link,NavLink to prevent reload of the browser while the components are loaded
+-NavLink when used will make the link with the current component will have css class -> active
+-programmatic redirection -eg: this.props.history.push('/')
+-props.history is available only for components called within <BrowserRouter></BrowserRouter> - eg:   <BrowserRouter>    <Route exact path="/" component={Timer}/></BrowserRouter>
+-to get props.history for other components, one should use withRouter - eg:
+-Higher Order Component - eg: withRouter
+-Sample HOC has been implemented in App.js
+-Life Cycle Methods 1) Constructor, componentWillMount, render, componentDidMount - First time load
+                    2) componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate - when there's a change in the component or the parent
+                    3) componentWillUnmount - When components unmounts

@@ -50,3 +50,6 @@ a label {
 }
 
 .hstrike:hover{text-decoration: line-through}
+.active{    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;}

@@ -17,28 +17,33 @@ class TodoApp extends Component {
   // <TodoList items={this.state.items} />//sets the property with the state value of the parent
   render() {
     return (
-      <div className="container bg-info p-5 ">
-        <h3>TODO</h3>
-        <TodoList items={this.state.items} removeTodo={this.removeTodo}/>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="new-todo">
-            What needs to be done?
-          </label>
-          <div className="row ">
-              <div className="mx-auto">
-                <div className="input-group">
-                <input className="input-group-addon"
-                  id="new-todo"
-                  onChange={this.handleChange}
-                  value={this.state.text}
-                />
-                <button className="input-group-addon">
-                  Add #{this.state.items.length + 1}
-                </button>
+      <div className="bg-info p-5 ">
+        <h3 className="text-white">TODO</h3>
+        <div className="card">
+          <div className="card-header">
+            <form onSubmit={this.handleSubmit}>
+              <label htmlFor="new-todo">
+                What needs to be done?
+              </label>
+              <div className="row ">
+                  <div className="mx-auto">
+                    <div className="input-group">
+                    <input className="input-group-addon"
+                      id="new-todo"
+                      onChange={this.handleChange}
+                      value={this.state.text}
+                    />
+                    <button className="input-group-addon">
+                      Add #{this.state.items.length + 1}
+                    </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-        </form>
+            </form>
+          </div>
+          <div className="card-body"><TodoList items={this.state.items} removeTodo={this.removeTodo}/></div>
+          <div className="card-footer text-muted">Click on the Item to Delete</div>
+      </div>
       </div>
     );
   }
@@ -66,7 +71,7 @@ class TodoApp extends Component {
 const TodoList =(props)=>{
   return (
     <div className="row">
-    {props.items.length>0 ? <div className="text-light col-10 mx-auto" >Click on the item to remove</div>:""}
+    {props.items.length>0 ? "" :<div className="col-12 m-5 mx-auto">Add Items to your ToDo List</div>}
     <ul className="list-group-mb5 text-left col-sm-10 col-md-4 mx-auto">
       {props.items.map(item => (
         <li key={item.id} title="Click to Delete" onClick={() => { props.removeTodo(item)}} className="list-group-item hstrike link">{item.text}</li>

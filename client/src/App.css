@@ -26,3 +26,27 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/*To Handle input-group in small devices*/
+@media (max-width: 480px) {
+.input-group-addon, .input-group-btn, .input-group .form-control {
+    display: block;
+    margin-bottom: 10px;
+    clear: both;
+    }
+.input-group {
+    display: block;
+    }
+.input-group button{
+  margin:auto
+}
+}
+/*To Handle input-group in small devices*/
+
+.link,
+a,
+a label {
+    cursor: pointer;
+}
+
+.hstrike:hover{text-decoration: line-through}

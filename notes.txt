@@ -87,3 +87,13 @@ Day4:
 -Install create-react-app
 -SPA - Single Page Apps : React apps are generally SPAs
 -props can also be used like this - const {name,age,sex}=this.props; //This will get the name,age,sex properties from props
+
+Day5:
+=====
+-Stateless component - TodoList is converted into a stateless component
+-added ternary operator to the 'click to remove' message
+-Employee List - New component with Form
+-Added media query for input-group, to make it responsive
+-Added default empList, Used spread operator for the hostname
+-Added onClick function, which will delete the row, to the TR tag in empList
+-Added the strikethrough style onhover for the empList

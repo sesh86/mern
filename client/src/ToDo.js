@@ -1,5 +1,5 @@
-import React from 'react';
-class TodoApp extends React.Component {
+import React,{Component} from 'react';
+class TodoApp extends Component {
   constructor(props) {
     super(props);
     this.state = { items: [], text: '' };
@@ -27,16 +27,14 @@ class TodoApp extends React.Component {
           <div className="row ">
               <div className="mx-auto">
                 <div className="input-group">
-                <input
+                <input className="input-group-addon"
                   id="new-todo"
                   onChange={this.handleChange}
                   value={this.state.text}
                 />
-                <span  >
                 <button className="input-group-addon">
                   Add #{this.state.items.length + 1}
                 </button>
-                </span>
                 </div>
               </div>
             </div>
@@ -65,25 +63,17 @@ class TodoApp extends React.Component {
   }
 }
 
-class TodoList extends React.Component {
-  removeItem(p_item) {
-      this.props.removeTodo(p_item);
-  }
-
-  // This syntax ensures `this` is bound within handleClick
-  //onClick={() => { this.removeItem(todo)}}
-  render() {
-    return (
-      <div className="row">
-      {this.props.items.length>0 && <div className="text-light col-10 mx-auto" >Click on the item to remove</div>}
-      <ul className="list-group-mb5 text-left col-sm-10 col-md-4 mx-auto">
-        {this.props.items.map(item => (
-          <li key={item.id} onClick={() => { this.removeItem(item)}} className="list-group-item">{item.text}<a onClick={() => { this.removeItem(item)}} className="text-right float-right text-danger">X</a></li>
-        ))}
-      </ul>
-      </div>
-    );
-  }
+const TodoList =(props)=>{
+  return (
+    <div className="row">
+    {props.items.length>0 ? <div className="text-light col-10 mx-auto" >Click on the item to remove</div>:""}
+    <ul className="list-group-mb5 text-left col-sm-10 col-md-4 mx-auto">
+      {props.items.map(item => (
+        <li key={item.id} title="Click to Delete" onClick={() => { props.removeTodo(item)}} className="list-group-item hstrike link">{item.text}</li>
+      ))}
+    </ul>
+    </div>
+  );
 }
 
 export default TodoApp;

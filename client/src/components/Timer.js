@@ -16,7 +16,7 @@ class Timer extends Component {
 
   resumeTime() {this.disableButton(true,false,false);this.interval = setInterval(() => this.tick(), 1000);}
 
-  tick() {this.setState(state => ({seconds: state.seconds + 1}));}
+    tick() {this.setState(state => ({seconds: state.seconds + 1}));}
 
   stop() {this.pauseTime();this.disableButton(false,true,true);this.setState(state => ({seconds: 0}));}
 

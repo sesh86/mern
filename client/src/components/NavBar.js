@@ -19,6 +19,9 @@ const NavBar=(props)=>{
                       <NavLink className="nav-link btn" to="/Todo">Todo</NavLink>
                   </li>
                   <li className="nav-item">
+                      <NavLink className="nav-link btn" to="/Users">Users</NavLink>
+                  </li>
+                  <li className="nav-item">
                       <NavLink className="nav-link btn" to="/EmpList">Employee List</NavLink>
                   </li>
               </ul>

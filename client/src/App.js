@@ -39,11 +39,13 @@ class NewComp extends React.Component {
 
   componentDidMount(){console.log('componentDidMount')}
 
-  shouldComponentUpdate(props){console.log('shouldComponentUpdate');return props.name.length>3}
+  shouldComponentUpdate(props,state){console.log('shouldComponentUpdate',props,state);return props.name.length>3}
 
-  componentWillReceiveProps(props){console.log('componentWillReceiveProps')}
+  componentWillReceiveProps(props,state){console.log('componentWillReceiveProps',props,state)}
 
-  componentWillUpdate(){console.log('componentWillUpdate')}
+  componentWillUpdate(props,state){console.log('componentWillUpdate',props,state)}
+
+  // getSnapshotBeforeUpdate(props,state){console.log('getSnapshotBeforeUpdate',props,state);return false;}
 
   componentDidUpdate(){console.log('componentDidUpdate');}
 
@@ -54,7 +56,7 @@ class NewComp extends React.Component {
 }
 
 const ChildComp =()=>{console.log('Child Component');return <span></span>}
-
+//
 const Skyblue = (WrapperComp)=>{
   return (props) => {
     return <div className="text-info">

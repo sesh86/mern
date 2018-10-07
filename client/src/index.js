@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import registerServiceWorker from './registerServiceWorker';
+
 import App from './App';
 import Timer from './components/Timer';
 import TodoApp from './components/ToDo';
@@ -9,11 +11,15 @@ import NavBar from './components/NavBar';
 import Posts from './components/Posts';
 import Users from './components/Users'
 import {BrowserRouter, Route} from 'react-router-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './reducers/rootReducer'
 
-import registerServiceWorker from './registerServiceWorker';
 
+const store = createStore(rootReducer);
 
 ReactDOM.render(
+  <Provider store={store}>
   <BrowserRouter>
   <div className="App">
     <NavBar/>
@@ -30,5 +36,6 @@ ReactDOM.render(
     <Route path="/EmpList" component={EmpList}/>
   </div>
   </BrowserRouter>
+  </Provider>
   , document.getElementById('root'));
 registerServiceWorker();

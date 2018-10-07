@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
-import axios from 'axios';
-import {Link , NavLink,withRouter} from 'react-router-dom';
+import { connect } from 'react-redux'
+import {NavLink} from 'react-router-dom';
+
+import {mapDispatchUsers} from '../reducers/actions'
 
 class Users extends Component {
   constructor(props){
@@ -8,15 +10,18 @@ class Users extends Component {
     this.state={users:[]}
   }
   componentDidMount(){
-    axios('https://jsonplaceholder.typicode.com/users')
-    .then(res=>{console.log(res);this.setState({users:res.data})});
+    this.props.getUsers();
+    // axios('https://jsonplaceholder.typicode.com/users')
+    // .then(res=>{console.log(res);this.setState({users:res.data})});
+    // console.log(this.props.state)
   }
   render(){
+    const {state}= this.props;
     return (
       <div className="container">
       <table className="table">
         <thead><tr><th>User Id</th><th>Name</th><th>Email</th><th>Phone</th></tr></thead>
-        <UserDetails users={this.state.users}></UserDetails>
+        <UserDetails users={state.users}></UserDetails>
       </table>
     </div>)
   }
@@ -30,4 +35,11 @@ const UserDetails =(props)=>{
       </tbody>);
 
 }
-export default Users;
+
+const mapStateToProps = (state) => {
+  return {
+    state:state
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchUsers)(Users);

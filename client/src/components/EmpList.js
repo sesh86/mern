@@ -1,22 +1,26 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux'
+import {addName,addDesignation,addEmp,delEmp} from '../reducers/actions'
 
 class EmpList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { name:'',designation:'',empList:[{name:'Sesh',designation:'TL'},{name:'Zuckerburg',designation:'Founder'}]};
+  constructor(props){
+    super(props)
+    this.inputName = React.createRef();
   }
-  handleChange=(e)=>{this.setState({[e.target.id]:e.target.value});}
+
+  handleChange=(e)=>{
+    if(e.target.id==='name') this.props.addName(e.target.value);
+    if(e.target.id==='designation') this.props.addDesignation(e.target.value);
+  }
 
   handleSubmit=(e)=>{
     e.preventDefault();
-    // let l_empList=this.state.empList;
-    let l_empList=[...this.state.empList];//http://es6-features.org/#SpreadOperator
-    l_empList.push({name:this.state.name,designation:this.state.designation});
-    this.setState({empList:l_empList,name:'',designation:''});
+    this.props.addEmp(this.props.state.name,this.props.state.designation)
+    this.inputName.current.focus();
   }
 
-  delEmp=(emp)=>{this.setState({empList:this.state.empList.filter(e=>e!==emp)})}
   render(){
+    const { state } = this.props;
     return(
     <div className="bg-warning p-5">
       <h4 className="text-white p-3">Employee List</h4>
@@ -25,14 +29,14 @@ class EmpList extends Component {
           <div className="row">
           <div className="mx-auto">
             <form className="input-group mx-auto" onSubmit={this.handleSubmit}>
-              <input className="input-group-addon" placeholder="Name" id="name" type="text" value={this.state.name} onChange={this.handleChange}/>
-              <input className="input-group-addon" placeholder="Designation" id="designation" value={this.state.designation} type="text" onChange={this.handleChange} />
+              <input ref={this.inputName} className="input-group-addon" placeholder="Name" id="name" type="text" value={state.name} onChange={this.handleChange}/>
+              <input className="input-group-addon" placeholder="Designation" id="designation" value={state.designation} type="text" onChange={this.handleChange} />
               <button className="btn-danger link btn">Add Employees</button>
             </form>
           </div>
           </div>
         </div>
-        <EmpTbl empList={this.state.empList} delEmp={this.delEmp}></EmpTbl>
+        <EmpTbl empList={state.empList} delEmp={this.props.delEmp}></EmpTbl>
         <div className="card-footer text-muted">Click on the Employee to remove from the list</div>
       </div>
     </div>
@@ -58,4 +62,21 @@ const EmpTbl=(props)=>{
     }
     </div>
 }
-export default EmpList;
+
+
+const mapStateToProps = (state) => {
+  return {
+    state:state
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addName: (name) => dispatch(addName(name)),
+    addDesignation: (name) => dispatch(addDesignation(name)),
+    addEmp: (name,designation) => {dispatch(addEmp(name,designation))},
+    delEmp:(emp)=>dispatch(delEmp(emp))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(EmpList);

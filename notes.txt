@@ -124,3 +124,14 @@ Day7:
 -Added a new Nav Users, TodoList Renamed to Posts and the posts of users are seen on clicking the link from the users Page
 -Switch Tag
 -Import images
+
+Day 8:
+======
+-npm i -s redux react-redux
+-redux is a state management package. states of the components are private. To have a central store and allow components to access it, we use redux
+-reducer, dispatch action
+-Reducer is the method that updates the central createStore
+-Dispatch Action is the method that calls the reducer. action cant be async.
+-Component dispatches the action. Dispatch actions and props are mapped in the Components.
+-Central store is added using provider in index.js
+-ref, focus

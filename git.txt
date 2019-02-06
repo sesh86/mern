@@ -20,10 +20,11 @@ Commit:
 git commit -m "first commit"
 
 --first time only
-git remote add origin https://github.com/sesh86/test.git 
+Create a repository in the GIT and run the following with the Appropriate url
+git remote add origin https://github.com/sesh86/test.git
 
 --master is just a branch name
-git push -u origin master  
+git push -u origin master
 
 
 Commits:
@@ -63,3 +64,19 @@ git checkout iss53
 See list of branches:
 =====================
 git branch
+
+Cloning:
+========
+git clone https://github.com/sesh86/GB
+
+Pull a particular Commit:
+========================
+
+Run this if it's on a fresh directory:
+--------------------------------------
+git pull --rebase https://github.com/sesh86/Demo 6a01fa0cf3ca6c2f7c1e7cbcb26ac2a0ac48f0c3
+
+
+Run this if it's on an existing directory:
+------------------------------------------
+git reset --hard 6a01fa0cf3ca6c2f7c1e7cbcb26ac2a0ac48f0c3

@@ -10,7 +10,7 @@ class Users extends Component {
     this.state={users:[]}
   }
   componentDidMount(){
-    this.props.getUsers();
+    // this.props.getUsers();
     // axios('https://jsonplaceholder.typicode.com/users')
     // .then(res=>{console.log(res);this.setState({users:res.data})});
     // console.log(this.props.state)
@@ -36,10 +36,6 @@ const UserDetails =(props)=>{
 
 }
 
-const mapStateToProps = (state) => {
-  return {
-    state:state
-  }
-}
+const mapStateToProps = (state) => {return {state:state}}
 
 export default connect(mapStateToProps,mapDispatchUsers)(Users);

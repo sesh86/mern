@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';//module for routes
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 import App from './App';
+import Demo from './components/Demo';
 import Timer from './components/Timer';
 import TodoApp from './components/ToDo';
 import EmpList from './components/EmpList';
@@ -20,15 +21,17 @@ const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
+
   <BrowserRouter>
   <div className="App">
     <NavBar/>
-
+    
     <Route exact path="/" component={App} name="sesh"/>
     <Route exact path="/" component={Timer}/>
     <Route exact path="/" component={TodoApp}/>
     <Route exact path="/" component={EmpList}/>
 
+    <Route path="/Timer" component={App}/>
     <Route path="/Timer" component={Timer}/>
     <Route path="/Todo" component={TodoApp}/>
     <Route path="/Posts/:id/:name" component={Posts}/>
@@ -36,6 +39,6 @@ ReactDOM.render(
     <Route path="/EmpList" component={EmpList}/>
   </div>
   </BrowserRouter>
-  </Provider>
+</Provider>
   , document.getElementById('root'));
 registerServiceWorker();

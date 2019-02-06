@@ -35,6 +35,13 @@ add the following in the server's package.json
     "dev":"concurrently \"npm run server\" \"npm run client\""
   },
 
+Assignment1:
+============
+Create a new react app
+Remove the react default content
+create a new child component in that
+pass multiple properties into the child
+show them in the child component
 
 Run client and server concurrently:
 ====================================
@@ -43,6 +50,7 @@ npm run dev
 
 Day2:
 =====
+
 
 class name should always start in upper case
 How to use properties
@@ -128,7 +136,8 @@ Day7:
 Day 8:
 ======
 -npm i -s redux react-redux
--redux is a state management package. states of the components are private. To have a central store and allow components to access it, we use redux
+-redux is a state management package. states of the components are private.
+To have a central store and allow components to access it, we use redux
 -reducer, dispatch action
 -Reducer is the method that updates the central createStore
 -Dispatch Action is the method that calls the reducer. action cant be async.

@@ -5,6 +5,9 @@ class App extends Component {
   state={name:""}
 
 handleChange = (e)=>{this.setState({name:e.target.value })}
+
+// handleChange(e){this.setState({name:e.target.value}
+
 componentDidCatch(){console.log('componentDidCatch');}
 
   render() {
@@ -30,7 +33,7 @@ class NewComp extends React.Component {
   tick =()=> {this.setState(state => ({sec: this.state.sec + 1}));console.log(this.state.sec);}
 
   render() {
-    this.interval = setInterval(()=>this.tick(),10000);
+    this.interval = setInterval(()=>this.tick(),1000);
     console.log('render');
     return (
       <div><ChildComp name={this.props.name}/>Hello {this.props.name}<br/><div>{this.state.sec}</div></div>
